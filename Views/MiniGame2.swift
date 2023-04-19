@@ -9,6 +9,7 @@ import SwiftUI
 import SpriteKit
 
 class GameScene: SKScene {
+    var background: SKSpriteNode!
     var rect: SKSpriteNode!
     var baseNamesArray: [String] = ["a","t","g","c","g","c"]
     var baseGrayNameArray: [String] = ["aGray","tGray","gGray","cGray","gGray","cGray"]
@@ -34,6 +35,7 @@ class GameScene: SKScene {
     var firstDialogShowed = false
     
     override func didMove(to view: SKView) {
+        createBackground()
         populateLetters()
         createRectangle()
         createBaseAnchor()
@@ -293,15 +295,24 @@ class GameScene: SKScene {
         popUpButton = SKShapeNode(rect: CGRect(origin: CGPoint(x: -150, y: -50), size: CGSize(width: 300, height: 100)), cornerRadius: 30)
         popUpButton.position = CGPoint(x: 683, y: 220)
         popUpNode.addChild(popUpButton)
-        
-        let buttonText = SKLabelNode(text: "OK")
+       
+        let buttonText = SKLabelNode(fontNamed: "SF-Pro-Rounded-Bold")
+        buttonText.text = "OK"
         buttonText.fontColor = .black
-        buttonText.fontName = "SFProText-Black"
+      //  buttonText.fontName = "SFPro-Black"
         buttonText.fontSize = 30
         buttonText.position = CGPoint(x: 0, y: -buttonText.frame.height/2)
         popUpButton.addChild(buttonText)
     }
+    
+    func createBackground() {
+        background = SKSpriteNode(imageNamed: "BGIntroLab")
+        background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        background.size = self.size
+        self.addChild(background)
+    }
 }
+
 
 struct DNAsequencing: View {
     

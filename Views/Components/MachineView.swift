@@ -31,6 +31,7 @@ struct MachineView: View {
                     Image(activePart == 2 ? "machine2color" : "machine2")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        
                 }
                 .disabled(activePart != 2)
             }
@@ -53,7 +54,9 @@ struct MachineView: View {
             
         }
         .aspectRatio(2.31, contentMode: .fit)
-        
+        //.frame(maxWidth: (0.8) * UIScreen.main.bounds.width)
+        .padding(.trailing,30)
+        .padding(.leading,30)
         
     }
 }

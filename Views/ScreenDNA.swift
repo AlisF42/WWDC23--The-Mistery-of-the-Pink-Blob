@@ -18,24 +18,45 @@ class FinalGameScene: SKScene {
     var needle: SKShapeNode!
     var infoText:SKLabelNode!
     var animationExecuted = false
+    var cat: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         createBackground()
         createDNA()
         createNeedle()
         createTouchTheScreenInfo()
+        createCat()
     }
     
     func createBackground() {
-        background = SKSpriteNode(imageNamed: "finalMiniGameBg")
-        background.position = CGPoint(x: 683, y: 512)
+        background = SKSpriteNode(imageNamed: "BgLabFinal")
+        background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         background.size = self.size
         self.addChild(background)
+    }
+    
+    func createCat() {
+        cat = SKSpriteNode()
+        cat.anchorPoint = CGPoint(x: 0, y: 0)//inferior exqurdo
+        cat.position = CGPoint(x: 700, y: 0)//posicao em relacao ao anchor point
+        cat.size = CGSize(width: 628, height: 675)//do figma
+
+        let animationLayers = [
+            SKTexture(imageNamed: "cat4Final"),
+            SKTexture(imageNamed: "cat5Final"),
+        ]
+
+        let animation = SKAction.repeatForever(SKAction.animate(with: animationLayers, timePerFrame: 0.3))
+        
+        cat.run(animation)
+
+        self.addChild(cat)
     }
     
     func createDNA() {
         dnaYellow = SKSpriteNode(imageNamed: "dnaYellow")
         dnaYellow.position = CGPoint(x: 683, y: 512+400)
+        dnaYellow.size = CGSize(width: 628, height: 675)
         self.addChild(dnaYellow)
 
         dnaPink = SKSpriteNode(imageNamed: "dnaPink")
@@ -109,7 +130,7 @@ class FinalGameScene: SKScene {
     
 }
 
-struct FinalMiniGameView: View {
+struct ScreenDNA: View {
     
     @State
     private var isLinkActive = false
@@ -141,9 +162,9 @@ struct FinalMiniGameView: View {
     }
 }
 
-struct FinalMiniGameView_Previews: PreviewProvider {
+struct ScreenDNA_Previews: PreviewProvider {
     static var previews: some View {
-        FinalMiniGameView()
+        ScreenDNA()
             .previewInterfaceOrientation(.landscapeRight)
         
     }
@@ -152,3 +173,8 @@ struct FinalMiniGameView_Previews: PreviewProvider {
 extension Notification.Name {
     static let nextFinal: Self = .init(rawValue: "nextFinal")
 }
+
+
+//cat4Final
+//cat5Final
+//cat6Final

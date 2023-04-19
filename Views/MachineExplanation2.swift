@@ -8,39 +8,58 @@
 import SwiftUI
 
 struct MachineExplanation2: View {
+    
+    var dialogList =  ["gnxnxnxn sjdjxnxm", "thrzhz", "hzhzhz"]
     @State var currentDialogIndex = 0
     @State var showGameExplanation = false
     
-    var dialogList =  ["oi", "bla", "njenc"]
+    
     
     var body: some View {
-        VStack(spacing: 0){
-            DialogBalloonView(dialog: dialogList[currentDialogIndex], boxImageName: "boxDialog")
-            Spacer()
-            MachineView(activePart: 3)
+        ZStack {
+            Image("BGIntro")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width)
+            
+            VStack{
+                DialogView(dialog: dialogList[currentDialogIndex])
+                Spacer()
                 
-            Rectangle()
-                .frame(height:96)
-                .foregroundColor(.gray)
-            
-            
-        }
-        .edgesIgnoringSafeArea(.bottom)
-        .onTapGesture { //pq so ta dando no balao???
-            
-            if currentDialogIndex < dialogList.count - 1 {
-                currentDialogIndex += 1
-            } else {
-                // Trocaria de presentation
-                showGameExplanation = true
+                VStack(spacing: 0){
+                    Group {
+                        if currentDialogIndex >= 2 {
+                            MachineView(activePart: 3)
+                        } else {
+                            MachineView(activePart: 0)
+                        }
+                    }
+                    
+                    
+                    Rectangle()
+                        .frame(height:96)
+                        .foregroundColor(.gray)
+                    
+                }
             }
+            
+        }.edgesIgnoringSafeArea(.all)
+            .onTapGesture {
+                
+                if currentDialogIndex < dialogList.count - 1 {
+                    currentDialogIndex += 1
+                } else {
+                    
+                    showGameExplanation = true
+                }
+            }
+    }
+}
+    
+    struct MachineExplanation2_Previews: PreviewProvider {
+        static var previews: some View {
+            MachineExplanation2()
+                .previewInterfaceOrientation(.landscapeRight)
         }
     }
-}
 
-struct MachineExplanation2_Previews: PreviewProvider {
-    static var previews: some View {
-        MachineExplanation2()
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-}

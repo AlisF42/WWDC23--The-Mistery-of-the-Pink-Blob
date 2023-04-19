@@ -27,7 +27,14 @@ struct MachineExplanation1: View {
                 Spacer()
                 
                 VStack(spacing: 0){
-                    MachineView(activePart: 1)
+                    Group {
+                        if currentDialogIndex >= 2 {
+                            MachineView(activePart: 1)
+                        } else {
+                            MachineView(activePart: 0)
+                        }
+                    }
+                   
                     
                     Rectangle()
                         .frame(height:96)
@@ -37,12 +44,12 @@ struct MachineExplanation1: View {
             }
             
         }.edgesIgnoringSafeArea(.all)
-            .onTapGesture { //pq so ta dando no balao???
+            .onTapGesture { 
                 
                 if currentDialogIndex < dialogList.count - 1 {
                     currentDialogIndex += 1
                 } else {
-                    // Trocaria de presentation
+                   
                     showGameExplanation = true
                 }
         }

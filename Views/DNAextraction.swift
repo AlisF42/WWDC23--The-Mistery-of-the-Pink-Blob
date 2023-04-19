@@ -38,7 +38,7 @@ struct DNAextraction: View {
                     Image(dnaShowingImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: (showingDNA ? 0.1 : 0.5) * UIScreen.main.bounds.width)
+                        .frame(maxWidth: (showingDNA ? 0.1 : 0.4) * UIScreen.main.bounds.width)
                         .animation(.easeIn, value: showingDNA)
                         .padding()
                         .offset(y: showingDNA ? -150 : 0)

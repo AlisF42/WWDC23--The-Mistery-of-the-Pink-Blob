@@ -34,7 +34,7 @@ struct FinalExplanation2: View {
             }
             
             // navigation link invisivel
-            NavigationLink(destination: FinalMiniGameView(), isActive: $showPresentation2) {
+            NavigationLink(destination: ScreenDNA(), isActive: $showPresentation2) {
                 // Trocar para a Presentation View 2
                
             }

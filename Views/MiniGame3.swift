@@ -11,7 +11,7 @@ import SwiftUI
 import SpriteKit
 
 class MiniGame2Scene: SKScene {
-
+    var background: SKSpriteNode!
     var movableNode : SKNode?
     
     var popUpNode: SKNode = SKNode()
@@ -37,7 +37,7 @@ class MiniGame2Scene: SKScene {
     var numberOfRows = 5
        
     override func didMove(to view: SKView) {
-
+        createBackground()
         createBaseAnchor()
         createDropAreas()
         createDropAreas()
@@ -298,12 +298,20 @@ class MiniGame2Scene: SKScene {
         popUpButton.position = CGPoint(x: 683, y: 200)
         popUpNode.addChild(popUpButton)
         
-        let buttonText = SKLabelNode(text: "OK")
+        let buttonText = SKLabelNode(fontNamed: "SF-Pro-Rounded-Bold")
+        buttonText.text = "OK"
         buttonText.fontColor = .black
         buttonText.fontName = "SFProText-Black"
         buttonText.fontSize = 30
         buttonText.position = CGPoint(x: 0, y: -buttonText.frame.height/2)
         popUpButton.addChild(buttonText)
+    }
+    
+    func createBackground() {
+        background = SKSpriteNode(imageNamed: "BGIntroLab")
+        background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        background.size = self.size
+        self.addChild(background)
     }
 }
 
@@ -323,7 +331,7 @@ struct MiniGame2View: View {
 
     var body: some View {
         VStack {
-            NavigationLink( destination: FinalExplanation1(), isActive: $isLinkActive,
+            NavigationLink( destination: SequencingExplanation(), isActive: $isLinkActive,
                            label: {  EmptyView() })
             gameView
         }
