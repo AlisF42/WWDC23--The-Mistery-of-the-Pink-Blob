@@ -66,9 +66,9 @@ struct MiniGame1: View {
     }
 }
 
-struct MiniGame1_Previews: PreviewProvider {
-    static var previews: some View {
-        PresentationView(presentation: Presentation(backgroundImageName: "PresentationDNABg", dialogList: ["hdehd", "hhcjdh"]))
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-}
+//struct MiniGame1_Previews: PreviewProvider {
+//    static var previews: some View {
+//       // Teste(presentation: Presentation(backgroundImageName: "PresentationDNABg", dialogList: ["hdehd", "hhcjdh"]))
+//            .previewInterfaceOrientation(.landscapeRight)
+//    }
+//}

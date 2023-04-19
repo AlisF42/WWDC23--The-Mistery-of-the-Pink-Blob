@@ -36,3 +36,4 @@ struct GameExplanationView_Previews: PreviewProvider {
 
     }
 }
+

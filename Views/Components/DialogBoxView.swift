@@ -17,7 +17,7 @@ struct DialogBoxView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                
-            Text(dialog)
+            TypeWriterView(dialog)
                 .padding(.trailing)
                 //.padding(.bottom,70)
                 .padding()
