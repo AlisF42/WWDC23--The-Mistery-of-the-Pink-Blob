@@ -11,7 +11,7 @@ struct GameExplanationView: View {
     var boxExplanation: String
     var explanation: String
     var imageName: String
-    
+    var explanation2: String
     var body: some View {
         ZStack{
             Image(boxExplanation)
@@ -20,6 +20,8 @@ struct GameExplanationView: View {
             VStack{
                 Text(explanation)
                 Image(imageName)
+                Text(explanation)
+                //Spacer()
                 NavigationLink(destination: Text("minigame")) {
                     Text("Ok")
                 }
@@ -31,7 +33,7 @@ struct GameExplanationView: View {
 
 struct GameExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        GameExplanationView(boxExplanation: "boxExplanation", explanation: "Ese minigame é legal", imageName: "blob")
+        GameExplanationView(boxExplanation: "boxExplanation", explanation: "Ese minigame é legal", imageName: "yellowBlob", explanation2: "lalal lala")
             .previewInterfaceOrientation(.landscapeRight)
 
     }

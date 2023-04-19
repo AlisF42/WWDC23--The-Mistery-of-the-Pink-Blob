@@ -207,7 +207,7 @@ class GameScene: SKScene {
                 let waitAction = SKAction.wait(forDuration: changeColorTime)
                 
                 let showAction = SKAction.run {
-                    self.showPopUp(boxImage: "boxExplanation", boxText: "voce completou")
+                    self.showPopUp(boxImage: "boxExplanation", boxText: "voce completou fhwhfu jhefwjhfkjs hgjhgjhs hgjkshgjsh gjhskhgjkhs jghshgjksh shgjkshgjksh kjhsghgjkshg hgjshkhg")
                 }
                 
                 let sequenceAction = SKAction.sequence([changeAction, waitAction, showAction])
@@ -255,6 +255,7 @@ class GameScene: SKScene {
            let popUpText = popUpBox.childNode(withName: "popUpText") as? SKLabelNode {
             popUpBox.texture = SKTexture(image: UIImage(named: boxImage)!)
             popUpText.text = boxText
+           
         }
         
         let revealAction = SKAction.fadeAlpha(to: 1, duration: 1)
@@ -280,15 +281,17 @@ class GameScene: SKScene {
         popUpBox.position = CGPoint(x: 683, y: 512)
         popUpNode.addChild(popUpBox)
         
-        let text = SKLabelNode(text: "hffgh")
+        let text = SKLabelNode(text: "hffgh dfjbjdgk kkdnkdnkg kdhmkmkhdmh dhdklhmkdhkl kdhldkjhkd hkdjhkldjh ldjhklhkldjh dhjdkjhkldjlkdh dhkljhkdjhkdjh djhdkjhldkjhlkd dhdkljhkldjhkldjh dhjdkjhlkdjhlkd dhjkdljhlkdj")
         text.fontColor = .black
         text.name = "popUpText"
         text.fontName = "SFProText-Black"
         text.fontSize = 30
         popUpBox.addChild(text)
         
-        popUpButton = SKShapeNode(rect: CGRect(origin: CGPoint(x: -150, y: -50), size: CGSize(width: 300, height: 100)), cornerRadius: 50)
-        popUpButton.position = CGPoint(x: 683, y: 200)
+        
+        
+        popUpButton = SKShapeNode(rect: CGRect(origin: CGPoint(x: -150, y: -50), size: CGSize(width: 300, height: 100)), cornerRadius: 30)
+        popUpButton.position = CGPoint(x: 683, y: 220)
         popUpNode.addChild(popUpButton)
         
         let buttonText = SKLabelNode(text: "OK")
@@ -300,7 +303,7 @@ class GameScene: SKScene {
     }
 }
 
-struct SwiftUIView: View {
+struct DNAsequencing: View {
     
     @State
     private var isLinkActive = false
@@ -342,9 +345,9 @@ struct SwiftUIView: View {
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct DNAsequencing_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        DNAsequencing()
             .previewInterfaceOrientation(.landscapeRight)
         
     }

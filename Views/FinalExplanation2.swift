@@ -29,7 +29,7 @@ struct FinalExplanation2: View {
             }
             VStack {
                 
-                DialogBoxView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonDialog")
+                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonDialog")
                 Spacer()
             }
             

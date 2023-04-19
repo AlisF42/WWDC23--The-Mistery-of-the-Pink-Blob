@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MiniGame1: View {
+struct DNAbroken: View {
     var background =  "PresentationDNABg"
-    var dialogList = ["jhf", "jfrj"]
+    var dialogList = ["The DNA molecule is too huge to enter the machine. Let break into pieaces to make it possible to be sequenced", "CLICK ON DNA TO BREAK ITS DNA"]
     var dna = "dna"
     var brokenDna = "dnaBroken"
     
@@ -32,15 +32,14 @@ struct MiniGame1: View {
             
             VStack {
                
-                DialogBoxView(dialog: dialogList[currentDialogIndex],  boxImageName: "boxDialog")
+                DialogView(dialog: dialogList[currentDialogIndex]  )
                 Spacer()
                     Image(showingDNA ? brokenDna : dna)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .onTapGesture {
-                            showingDNA.toggle()
-                        }
-                        .padding()
+                        .frame(maxWidth: (0.8) * UIScreen.main.bounds.width)
+                        
+                       // .padding()
                 Spacer()
                     
                 
@@ -58,7 +57,11 @@ struct MiniGame1: View {
             if currentDialogIndex < dialogList.count - 1 {
                 currentDialogIndex += 1
             } else {
-                // Trocaria de presentation
+                if !showingDNA {
+                    showingDNA.toggle()
+                    return
+                }
+
                 showMachineExplanation = true
             }
         }
@@ -66,9 +69,11 @@ struct MiniGame1: View {
     }
 }
 
-//struct MiniGame1_Previews: PreviewProvider {
-//    static var previews: some View {
-//       // Teste(presentation: Presentation(backgroundImageName: "PresentationDNABg", dialogList: ["hdehd", "hhcjdh"]))
-//            .previewInterfaceOrientation(.landscapeRight)
-//    }
-//}
+
+
+struct DNAbroken_Previews: PreviewProvider {
+    static var previews: some View {
+        DNAbroken()
+            .previewInterfaceOrientation(.landscapeRight)
+    }
+}

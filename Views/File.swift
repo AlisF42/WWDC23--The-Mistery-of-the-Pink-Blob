@@ -12,6 +12,6 @@ extension Image {
     self
       .resizable()
       .aspectRatio(contentMode: .fit)
-      .frame(maxWidth: width / 1024)
+      .frame(maxWidth: width / 1366)
   }
 }

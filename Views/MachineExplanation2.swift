@@ -15,7 +15,7 @@ struct MachineExplanation2: View {
     
     var body: some View {
         VStack(spacing: 0){
-            DialogBoxView(dialog: dialogList[currentDialogIndex], boxImageName: "boxDialog")
+            DialogBalloonView(dialog: dialogList[currentDialogIndex], boxImageName: "boxDialog")
             Spacer()
             MachineView(activePart: 3)
                 

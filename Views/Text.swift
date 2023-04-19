@@ -14,8 +14,14 @@ struct TypeWriterView: View {
     }
     var body: some View {
         Text(text)
+           // .lineLimit(2)
+            
+            .foregroundColor(Color.white)
+            //.font(.system(size: 21, weight: .semibold, design: .rounded))
+            .multilineTextAlignment(.leading)
+            .minimumScaleFactor(0.6)
         //mudar fontes etc
-       .onAppear{typeWriter()}
+      // .onAppear{typeWriter()}
         
     }
     
@@ -26,7 +32,7 @@ struct TypeWriterView: View {
         }
         //velocidade (0.2)
         if position < finalText.count {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 text.append(finalText[position])
                 typeWriter(at: position + 1)
             }

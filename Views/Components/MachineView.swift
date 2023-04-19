@@ -16,8 +16,11 @@ struct MachineView: View {
         
         HStack(alignment: .bottom, spacing: 0){
             VStack(spacing:0){
-                NavigationLink(destination:MiniGame1()) {
+                
+                
+                NavigationLink(destination:DNAbroken()) {
                     Image(activePart == 1 ? "machine1color" : "machine1")
+                    //pq nao ta funcionando? Pq ta logo no inicio igual a 1
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .offset(x: -20)
@@ -34,7 +37,7 @@ struct MachineView: View {
             .aspectRatio(0.63, contentMode: .fit)
             .layoutPriority(1)
             
-            NavigationLink(destination:SwiftUIView()) {
+            NavigationLink(destination:DNAsequencing()) {
                 Image(activePart == 3 ? "machine3color" :"machine3")
                     . resizable()
                     .aspectRatio(contentMode: .fit)

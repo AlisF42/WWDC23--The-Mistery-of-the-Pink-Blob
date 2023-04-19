@@ -125,9 +125,16 @@ class MiniGame2Scene: SKScene {
         
     }
     
-  
-    
-    
+    // verifica se sequencia esta completa
+    func isWrong() -> Bool {
+        let somethingElseInArea1 = dropArea1.contains(stack2.position) || dropArea1.contains(stack3.position)
+        let somethingElseInArea2 = dropArea2.contains(stack1.position) || dropArea2.contains(stack3.position)
+        let somethingElseInArea3 = dropArea3.contains(stack1.position) || dropArea3.contains(stack2.position)
+        let isAligned = (stack1.position.y == stack2.position.y) && (stack1.position.y == stack3.position.y)
+
+        return isAligned && (somethingElseInArea1 || somethingElseInArea2 || somethingElseInArea3)
+    }
+
     func isCorrect() -> Bool {
         guard dropArea1.contains(stack1.position)
                 && dropArea2.contains(stack2.position)
@@ -162,7 +169,9 @@ class MiniGame2Scene: SKScene {
         return stack1Row == stack2Row && stack2Row == stack3Row
         
     }
-    
+
+    private var userDidMove = false
+
     
     //MARK: - Gestures
     
@@ -214,6 +223,10 @@ class MiniGame2Scene: SKScene {
         if isCorrect() {
             print("Foi!")
             showPopUp(boxImage: "boxExplanation", boxText: "Final")
+        } else if userDidMove && isWrong() {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            print("ERRRRRRRRRRRRRRRRRRROU")
         }
 
         if let touch = touches.first, movableNode == nil {
@@ -231,7 +244,8 @@ class MiniGame2Scene: SKScene {
             }
         }
 //
-        
+
+        userDidMove = true
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
