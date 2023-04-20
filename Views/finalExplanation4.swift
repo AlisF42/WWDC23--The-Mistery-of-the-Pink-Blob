@@ -54,5 +54,6 @@ struct FinalExplanation4: View {
 struct FinalExplanation4_Previews: PreviewProvider {
     static var previews: some View {
         FinalExplanation4()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

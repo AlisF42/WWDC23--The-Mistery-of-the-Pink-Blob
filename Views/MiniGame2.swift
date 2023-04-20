@@ -201,12 +201,12 @@ class GameScene: SKScene {
             
             if isFinished(){
                 print("Terminou")
-                let changeColorTime: TimeInterval = 3
+                let changeColorTime: TimeInterval = 2
                 let changeAction = SKAction.run {
                     self.changeBoxColor(duration: changeColorTime)
                 }
                 
-                let waitAction = SKAction.wait(forDuration: changeColorTime)
+                let waitAction = SKAction.wait(forDuration: 3)
                 
                 let showAction = SKAction.run {
                     self.showPopUp(boxImage: "boxExplanation", boxText: "voce completou fhwhfu jhefwjhfkjs hgjhgjhs hgjkshgjsh gjhskhgjkhs jghshgjksh shgjkshgjksh kjhsghgjkshg hgjshkhg")
@@ -247,7 +247,7 @@ class GameScene: SKScene {
     
     func changeBoxColor(duration: TimeInterval){
         for box in letterBoxArray {
-            let revealAction = SKAction.colorize(with: .systemPink, colorBlendFactor: 1, duration: duration)
+            let revealAction = SKAction.colorize(with: UIColor(red: 255.0/255.0, green: 140.0/255.0, blue: 230.0/255.0, alpha: 1), colorBlendFactor: 1, duration: duration)
             box.run(revealAction)
         }
     }
@@ -260,7 +260,7 @@ class GameScene: SKScene {
            
         }
         
-        let revealAction = SKAction.fadeAlpha(to: 1, duration: 1)
+        let revealAction = SKAction.fadeAlpha(to: 1, duration: 2)
         popUpNode.run(revealAction)
     }
     

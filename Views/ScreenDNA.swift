@@ -22,10 +22,11 @@ class FinalGameScene: SKScene {
     
     override func didMove(to view: SKView) {
         createBackground()
+        createCat()
         createDNA()
         createNeedle()
         createTouchTheScreenInfo()
-        createCat()
+        
     }
     
     func createBackground() {
@@ -40,32 +41,34 @@ class FinalGameScene: SKScene {
         cat.anchorPoint = CGPoint(x: 0, y: 0)//inferior exqurdo
         cat.position = CGPoint(x: 700, y: 0)//posicao em relacao ao anchor point
         cat.size = CGSize(width: 628, height: 675)//do figma
-
-        let animationLayers = [
-            SKTexture(imageNamed: "cat4Final"),
-            SKTexture(imageNamed: "cat5Final"),
-        ]
-
-        let animation = SKAction.repeatForever(SKAction.animate(with: animationLayers, timePerFrame: 0.3))
-        
-        cat.run(animation)
-
-        self.addChild(cat)
+        self.addChild(cat) // pq n foi??? ;-;
     }
+//        let animationLayers = [
+//            SKTexture(imageNamed: "cat4Final"),
+//            SKTexture(imageNamed: "cat5Final"),
+//        ]
+//
+//        let animation = SKAction.repeatForever(SKAction.animate(with: animationLayers, timePerFrame: 0.3))
+//
+//        cat.run(animation)
+
+        
+    
     
     func createDNA() {
         dnaYellow = SKSpriteNode(imageNamed: "dnaYellow")
-        dnaYellow.position = CGPoint(x: 683, y: 512+400)
-        dnaYellow.size = CGSize(width: 628, height: 675)
+        dnaYellow.position = CGPoint(x: 683, y: 512+340)
+        dnaYellow.size = CGSize(width: 1074, height: 99)
         self.addChild(dnaYellow)
 
         dnaPink = SKSpriteNode(imageNamed: "dnaPink")
-        dnaPink.position = CGPoint(x: 683, y: 512+270)
+        dnaPink.position = CGPoint(x: 683, y: 512+210)
+        dnaPink.size = CGSize(width: 1074, height: 99)
         self.addChild(dnaPink)
     }
     
     func createNeedle() {
-        needle = SKShapeNode(rectOf: CGSize(width: 100, height: 350), cornerRadius: 30)
+        needle = SKShapeNode(rectOf: CGSize(width: 80, height: 250), cornerRadius: 30)
         needle.position = CGPoint(x: 130, y: (dnaYellow.frame.maxY - dnaPink.frame.minY)/2 + dnaPink.frame.minY)
         needle.strokeColor = .black
         needle.lineWidth = 10
@@ -94,16 +97,23 @@ class FinalGameScene: SKScene {
             self.infoText.alpha = 0
         }
         
-        let moveToEndAction = SKAction.moveTo(x: dnaYellow.frame.maxX-needle.frame.width + 15, duration: 3)
+        let moveToEndAction = SKAction.moveTo(x: dnaYellow.frame.maxX-needle.frame.width + 100, duration: 3)
         
-        let moveToRightOneAction = SKAction.moveTo(x: dnaYellow.frame.maxX-needle.frame.width - 200, duration: 1)
+        let moveToRightOneAction = SKAction.moveTo(x: dnaYellow.frame.maxX-needle.frame.width - 170, duration: 1)
         
         let changeNeedleColorAction = SKAction.run {
             self.needle.fillColor = .green.withAlphaComponent(0.5)
         }
         
-        let changeBGAction = SKAction.run {
-            self.changeBackground()
+        let changeCatAction = SKAction.run {
+            self.changeCat()
+        }
+        
+        let changeCat2Action = SKAction.run {
+            self.changeCat2()
+        }
+        let changeCat3Action = SKAction.run {
+            self.changeCat3()
         }
         
         let waitAction = SKAction.wait(forDuration: 3)
@@ -112,12 +122,21 @@ class FinalGameScene: SKScene {
             NotificationCenter.default.post(name: .nextFinal, object: nil)
         }
         
-        let sequenceAction = SKAction.sequence([hideInfoAction, moveToEndAction, moveToRightOneAction, changeNeedleColorAction,changeBGAction, waitAction, changeViewAction])
+        let sequenceAction = SKAction.sequence([hideInfoAction,
+                  changeCat2Action,moveToEndAction,
+                             changeCat3Action,moveToRightOneAction, changeNeedleColorAction,changeCatAction, waitAction, changeViewAction])
         needle.run(sequenceAction)
     }
     
-    func changeBackground() {
-        background.texture = SKTexture(imageNamed: "finalMinigameBg2")
+    func changeCat() {
+        cat.texture = SKTexture(imageNamed: "cat5Final")
+    }
+    
+    func changeCat2() {
+        cat.texture = SKTexture(imageNamed: "cat4Final")
+    }
+    func changeCat3() {
+        cat.texture = SKTexture(imageNamed: "cat8Final")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
