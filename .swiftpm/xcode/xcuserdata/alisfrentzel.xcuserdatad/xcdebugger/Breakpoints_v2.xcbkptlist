@@ -14,9 +14,9 @@
             filePath = "Views/MiniGame2.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "touchesEnded(_:with:)"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "didMove(to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

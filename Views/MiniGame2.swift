@@ -43,7 +43,8 @@ class GameScene: SKScene {
         createDraggableBases()
         createLetters()
         createPopUp()
-        showPopUp(boxImage: "boxExplanation", boxText: "inicio do jogo")
+        //AQUI
+        showPopUp(boxImage: "boxExplanation", boxText: "inicio do jogo, jhsjhcjs shvjhvsjv jshvsjhvjs jhsvsjhvjshv jhjvhsjvh")
     }
     
     func populateLetters () {
@@ -207,7 +208,7 @@ class GameScene: SKScene {
                 }
                 
                 let waitAction = SKAction.wait(forDuration: 3)
-                
+            //AQUI
                 let showAction = SKAction.run {
                     self.showPopUp(boxImage: "boxExplanation", boxText: "voce completou fhwhfu jhefwjhfkjs hgjhgjhs hgjkshgjsh gjhskhgjkhs jghshgjksh shgjkshgjksh kjhsghgjkshg hgjshkhg")
                 }

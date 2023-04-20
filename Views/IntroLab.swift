@@ -98,15 +98,18 @@ class IntroLabScene: SKScene {
 }
 
 struct IntroLab: View {
-    private var presentation: Presentation = Presentation(backgroundImageName: "BGIntroLab", dialogList: ["jfhjhv hfhsbfh hfbwehbfhwbf fjebfjebjeb ejvbjebvjebv", "jcejh jevnejwnvwjnv jnejvnejvn", "jvjv jnvejnvje ejnvjenvje nvjenvjenv"])
+     
+var dialogList = ["jfhjhv hfhsbfh hfbwehbfhwbf fjebfjebjeb ejvbjebvjebv", "jcejh jevnejwnvwjnv jnejvnejvn", "jvjv jnvejnvje ejnvjenvje nvjenvjenv"]
     @State var currentDialogIndex = 0
     @State var showPresentation2 = false
 
     var body: some View {
         ZStack {
+
+            
             sceneView
 
-            DialogBalloonView(dialog: presentation.dialogList[currentDialogIndex],  boxImageName: "ballonSpeak")
+            DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeak")
                
                 .offset(y: UIScreen.main.bounds.height * -0.3)
 
@@ -117,7 +120,7 @@ struct IntroLab: View {
             }.navigationBarBackButtonHidden(true)
         }
         .onTapGesture {
-            if currentDialogIndex < presentation.dialogList.count - 1 {
+            if currentDialogIndex < dialogList.count - 1 {
                 currentDialogIndex += 1
             } else {
                 // Trocaria de presentation

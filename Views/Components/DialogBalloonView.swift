@@ -23,7 +23,7 @@ struct DialogBalloonView: View {
             VStack(alignment: .leading) {
                
                 Text(dialog)
-                    .font(.system(size: 40, weight: .semibold, design: .rounded))
+                    .font(.system(size: 30, weight: .semibold, design: .rounded))
                
                 
                     .foregroundColor(Color.white)

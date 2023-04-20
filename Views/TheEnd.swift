@@ -26,13 +26,11 @@ struct TheEnd: View {
                 VStack{
                     //titulo
                     Spacer()
-                    Text("The misterious pink blob")
-                        .font(.system(size: 80, weight: .bold))
+                    Text("Thank you!")
+                        .font(.system(size: 100, weight: .bold))
                         .padding(.top, 30)
                     
-                    Text("or how to sequence DNA")
-                        .font(.system(size: 40))
-                        .padding(.bottom, 30)
+                   
                     
                     //botão
                     NavigationLink(destination: InitialView()){

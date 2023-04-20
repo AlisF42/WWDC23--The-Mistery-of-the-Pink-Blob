@@ -44,8 +44,8 @@ class MiniGame2Scene: SKScene {
         createStacks()
         createPopUp()
 
-
-        showPopUp(boxImage: "boxExplanation", boxText: "inicio do jogo")
+// AQUI
+        showPopUp(boxImage: "boxExplanation", boxText: "inicio do jogo, chschshcs shcjhcjshc hsjhcjshcs hvjshvjshvjs shvjhvjshvjs jvhsjvhsjhv svhsjhvjshvjsh")
     }
     
     
@@ -219,10 +219,10 @@ class MiniGame2Scene: SKScene {
         }
         movableNode = nil
 
-        
+//AQUI
         if isCorrect() {
             print("Foi!")
-            showPopUp(boxImage: "boxExplanation", boxText: "Final")
+            showPopUp(boxImage: "boxExplanation", boxText: "Final, jhsjvhjv jvshjvhjshv jhvsjhvsjvh hvsjhvsjhv jhvsjhvjshv jhvshvjshv jhsvjhvjshv jhvsjhvjs jhsvsjhvjs")
         } else if userDidMove && isWrong() {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
