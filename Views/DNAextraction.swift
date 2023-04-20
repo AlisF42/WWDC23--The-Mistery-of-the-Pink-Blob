@@ -26,31 +26,36 @@ struct DNAextraction: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: UIScreen.main.bounds.width)
-
+            DialogView(dialog: dialogList[currentDialogIndex])
+                .offset(y: UIScreen.main.bounds.height * -0.35)
+            
             VStack {
                
-                DialogView(dialog: dialogList[currentDialogIndex])
-                   // .padding()
-                Spacer()
+              
+                  
+               
                 
                 ZStack {
-
-                    Image(dnaShowingImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: (showingDNA ? 0.1 : 0.4) * UIScreen.main.bounds.width)
-                        .animation(.easeIn, value: showingDNA)
-                        .padding()
-                        .offset(y: showingDNA ? -150 : 0)
-
-                    Image(dnaImageName)
+                    VStack{
+                        Spacer()
+                        Image(dnaShowingImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .offset(y: UIScreen.main.bounds.height * 0.1)
+                            .frame(maxWidth: (showingDNA ? 0.1 : 0.3) * UIScreen.main.bounds.width)
+                            .animation(.easeIn, value: showingDNA)
+                            .padding()
+                            .offset(y: showingDNA ? -50 : 50)
+                        
+                        Image(dnaImageName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxWidth: (showingDNA ? 0.8 : 0) * UIScreen.main.bounds.width)
                             .animation(.easeIn, value: showingDNA)
-                            .padding()
-
-                    Spacer()
+                            .offset(y: UIScreen.main.bounds.height * 0.1)
+                        
+                        Spacer()
+                    }
                 }
             Spacer()
             }

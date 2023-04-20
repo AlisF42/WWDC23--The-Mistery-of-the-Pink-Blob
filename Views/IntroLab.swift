@@ -108,7 +108,7 @@ struct IntroLab: View {
 
             DialogBalloonView(dialog: presentation.dialogList[currentDialogIndex],  boxImageName: "ballonSpeak")
                
-                .offset(y: -270)
+                .offset(y: UIScreen.main.bounds.height * -0.3)
 
 
             NavigationLink(destination: IntroMachine(), isActive: $showPresentation2) {

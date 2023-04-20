@@ -23,6 +23,11 @@ struct DNAbroken: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: UIScreen.main.bounds.width)
+            DialogView(dialog: dialogList[currentDialogIndex]  )
+                .offset(y: UIScreen.main.bounds.height * -0.35)
+                
+        
+            
             VStack{
                 
                 NavigationLink(destination: Text("blala")) {
@@ -31,16 +36,13 @@ struct DNAbroken: View {
             }
             
             VStack {
+                
                
-                DialogView(dialog: dialogList[currentDialogIndex]  )
-                Spacer()
-                    Image(showingDNA ? brokenDna : dna)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: (0.8) * UIScreen.main.bounds.width)
-                        
-                       // .padding()
-                Spacer()
+                Image(showingDNA ? brokenDna : dna)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: (0.8) * UIScreen.main.bounds.width)
+                    .offset(y: UIScreen.main.bounds.height * 0.1)
                     
                 
             }

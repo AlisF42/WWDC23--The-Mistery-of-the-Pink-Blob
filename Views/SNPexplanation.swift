@@ -9,14 +9,7 @@ import SwiftUI
 
 struct SNPexplanation: View {
     var dialogList =  ["jrnecr", "crjncjrn","hfjshfjs", " hsuhvv", "hfuhahv"]
-    var cat1: Image {
-        Image("cat9Final")
-            
-    }
-
-    var cat2: Image {
-        Image("cat6Final")
-    }
+  
    
     
     @State var currentDialogIndex = 0
@@ -28,18 +21,19 @@ struct SNPexplanation: View {
                 .resizable()
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .aspectRatio(contentMode: .fill)
+            
+                
+                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeakInverted")
+                    
+                    .offset(y: UIScreen.main.bounds.height * -0.3)
+           
             VStack{
                 
                 NavigationLink(destination: Text("blala")) {
                     Text("")
                 }
             }
-            VStack {
-                
-                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeakInverted")
-                    .padding()
-            Spacer()
-            }
+         
             HStack {
                 Spacer()
 
@@ -60,10 +54,16 @@ struct SNPexplanation: View {
 
                         Group {
                             if currentDialogIndex == 2 {
-                                cat2
+                                Image("cat6Final")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                            
                             } else {
-                                cat1
+                                Image("cat9Final")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                             }
                         }
                     }

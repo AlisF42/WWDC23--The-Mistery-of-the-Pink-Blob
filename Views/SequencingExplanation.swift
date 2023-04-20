@@ -10,17 +10,7 @@ import SwiftUI
 struct SequencingExplanation: View {
     
     var dialogList =  ["jrnecr", "crjncjrn","hfjshfjs", " hsuhvv", "hfuhahv"]
-    var cat1: Image {
-        Image("cat1Final")
-            
-    }
 
-    var cat2: Image {
-        Image("cat2Final")
-    }
-    var cat3: Image {
-        Image("cat7Final")
-    }
     
     @State var currentDialogIndex = 0
     @State var showPresentation2 = false
@@ -31,18 +21,19 @@ struct SequencingExplanation: View {
                 .resizable()
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .aspectRatio(contentMode: .fill)
+            
+                
+                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeakInverted")
+                .offset(y: UIScreen.main.bounds.height * -0.3)
+            
+            
             VStack{
                 
                 NavigationLink(destination: Text("blala")) {
                     Text("")
                 }
             }
-            VStack {
-                
-                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeakInverted")
-                    .padding()
-            Spacer()
-            }
+            
             HStack {
                 Spacer()
                 
@@ -74,11 +65,20 @@ struct SequencingExplanation: View {
 
                         Group {
                             if currentDialogIndex == 2 {
-                                cat2
+                                Image("cat2Final")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                             } else if currentDialogIndex >= 3 {
-                                cat3
+                                Image("cat7Final")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                             } else {
-                                cat1
+                                Image("cat1Final")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                             }
                         }
                     }

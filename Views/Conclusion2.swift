@@ -100,7 +100,7 @@ struct Conclusion2: View {
 
             DialogBalloonView(dialog: presentation.dialogList[currentDialogIndex],  boxImageName: "ballonSpeak")
                
-                .offset(y: -200)
+                .offset(y: UIScreen.main.bounds.height * -0.3)
            
             VStack {
                Spacer()
@@ -112,18 +112,13 @@ struct Conclusion2: View {
                             Image("catConclusion1")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(maxHeight: 0.7 * UIScreen.main.bounds.height)
-                                .padding(.leading)
-                                .padding(.trailing)
-//                                .offset(y: UIScreen.main.bounds.height*0.1)
+                                .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
+                           
                         } else {
                             Image("catConclusion2")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(maxHeight: 0.7 * UIScreen.main.bounds.height)
-                                .padding(.leading)
-                                .padding(.trailing)
-//                             .offset(y: UIScreen.main.bounds.height*0.1)
+                                .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                         }
                     }
                     Spacer()

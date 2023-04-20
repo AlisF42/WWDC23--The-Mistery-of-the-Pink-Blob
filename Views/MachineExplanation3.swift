@@ -20,8 +20,10 @@ struct MachineExplanation3: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width)
             
+            DialogView(dialog: dialogList[currentDialogIndex])
+                .offset(y: UIScreen.main.bounds.height * -0.35)
             VStack{
-                DialogView(dialog: dialogList[currentDialogIndex])
+               
                 Spacer()
                 
                 VStack(spacing: 0){
@@ -58,5 +60,6 @@ struct MachineExplanation3: View {
 struct MachineExplanation3_Previews: PreviewProvider {
     static var previews: some View {
         MachineExplanation3()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

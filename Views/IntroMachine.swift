@@ -21,6 +21,11 @@ struct IntroMachine: View {
                 .resizable()
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .aspectRatio(contentMode: .fill)
+           
+                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeakInverted")
+                    .offset(y: UIScreen.main.bounds.height * -0.3)
+
+          
             VStack{
                 
                 NavigationLink(destination: Text("blala")) {
@@ -28,14 +33,7 @@ struct IntroMachine: View {
                 }
             }.navigationBarBackButtonHidden(true)
            
-            VStack {
-                
-                DialogBalloonView(dialog: dialogList[currentDialogIndex],  boxImageName: "ballonSpeakInverted")
-                    .padding()
-
-              Spacer()
-                    
-            }
+           
 
             VStack {
                 Spacer()
@@ -44,9 +42,15 @@ struct IntroMachine: View {
 
                     Group {
                         if currentDialogIndex == 0 {
-                            cat1
+                            Image("cat1IntroLab")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                         } else {
-                            cat2
+                            Image("cat2IntroLab")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: UIScreen.main.bounds.width * 0.5)
                         }
                     }
                 }
@@ -70,13 +74,9 @@ struct IntroMachine: View {
         }
     }
 
-    var cat1: Image {
-        Image("cat1IntroLab")
-    }
+  
 
-    var cat2: Image {
-        Image("cat2IntroLab")
-    }
+  
 }
 
 struct PresentationView22_Previews: PreviewProvider {
