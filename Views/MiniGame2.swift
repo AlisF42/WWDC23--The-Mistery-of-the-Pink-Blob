@@ -341,7 +341,7 @@ struct DNAsequencing: View {
     var body: some View {
         VStack {
             NavigationLink( destination: MachineExplanation3(), isActive: $isLinkActive,
-                           label: {  EmptyView() })
+                           label: {  EmptyView() }).navigationBarBackButtonHidden(true)
             gameView
         }
         .onReceive(NotificationCenter.default.publisher(for: .nextGame)) { _ in

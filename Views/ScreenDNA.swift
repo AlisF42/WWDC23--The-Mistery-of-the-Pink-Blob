@@ -165,8 +165,8 @@ struct ScreenDNA: View {
     
     var body: some View {
         VStack {
-            NavigationLink( destination:  FinalExplanation4(), isActive: $isLinkActive,
-                           label: {  EmptyView() })
+            NavigationLink( destination:  SNPexplanation(), isActive: $isLinkActive,
+                           label: {  EmptyView() }).navigationBarBackButtonHidden(true)
             gameView
         }
         .onReceive(NotificationCenter.default.publisher(for: .nextFinal)) { _ in

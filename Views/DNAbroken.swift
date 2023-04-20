@@ -49,7 +49,7 @@ struct DNAbroken: View {
             NavigationLink(destination: MachineExplanation2() , isActive: $showMachineExplanation) {
                 // Trocar para a Presentation View 2
               
-            }
+            }.navigationBarBackButtonHidden(true)
         }
         .ignoresSafeArea(.all)
         .onTapGesture {

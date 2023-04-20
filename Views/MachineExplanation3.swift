@@ -27,7 +27,7 @@ struct MachineExplanation3: View {
                 VStack(spacing: 0){
                     Group {
                         if currentDialogIndex >= 2 {
-                            MachineView(activePart: 1)
+                            MachineView(activePart: 4)
                         } else {
                             MachineView(activePart: 0)
                         }

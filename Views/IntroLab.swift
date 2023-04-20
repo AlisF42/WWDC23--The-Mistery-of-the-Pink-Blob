@@ -114,7 +114,7 @@ struct IntroLab: View {
             NavigationLink(destination: IntroMachine(), isActive: $showPresentation2) {
                 // Trocar para a Presentation View 2
 
-            }
+            }.navigationBarBackButtonHidden(true)
         }
         .onTapGesture {
             if currentDialogIndex < presentation.dialogList.count - 1 {
@@ -139,7 +139,7 @@ struct IntroLab: View {
         SpriteView(scene: scene)
             .aspectRatio(contentMode: .fill)
     }
-}
+} 
 
 struct IntroLab_Preview: PreviewProvider {
     static var previews: some View {

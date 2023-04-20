@@ -26,7 +26,7 @@ struct IntroMachine: View {
                 NavigationLink(destination: Text("blala")) {
                     Text("")
                 }
-            }
+            }.navigationBarBackButtonHidden(true)
            
             VStack {
                 
@@ -56,7 +56,7 @@ struct IntroMachine: View {
             NavigationLink(destination: DNAextraction(), isActive: $showPresentation2) {
                 // Trocar para a Presentation View 2
                
-            }
+            }.navigationBarBackButtonHidden(true)
         }
         .ignoresSafeArea(.all)
         .onTapGesture {

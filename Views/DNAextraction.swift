@@ -58,7 +58,7 @@ struct DNAextraction: View {
             NavigationLink(destination: MachineExplanation1(), isActive: $showMachineExplanation) {
                 
               
-            }
+            }.navigationBarBackButtonHidden(true)
         }
         .ignoresSafeArea(.all)
         .onTapGesture {

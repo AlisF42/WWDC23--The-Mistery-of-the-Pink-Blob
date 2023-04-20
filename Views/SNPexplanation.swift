@@ -2,25 +2,22 @@
 //  SwiftUIView.swift
 //  
 //
-//  Created by alis frentzel on 24/04/22.
+//  Created by alis frentzel on 25/04/22.
 //
 
 import SwiftUI
 
-struct SequencingExplanation: View {
-    
+struct SNPexplanation: View {
     var dialogList =  ["jrnecr", "crjncjrn","hfjshfjs", " hsuhvv", "hfuhahv"]
     var cat1: Image {
-        Image("cat1Final")
+        Image("cat9Final")
             
     }
 
     var cat2: Image {
-        Image("cat2Final")
+        Image("cat6Final")
     }
-    var cat3: Image {
-        Image("cat7Final")
-    }
+   
     
     @State var currentDialogIndex = 0
     @State var showPresentation2 = false
@@ -45,27 +42,16 @@ struct SequencingExplanation: View {
             }
             HStack {
                 Spacer()
+
+                        Image("telaDNAsnp")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxHeight: 0.4 * UIScreen.main.bounds.height)
+                            .padding(.leading)
+                            .padding(.trailing)
+                            .offset(y: UIScreen.main.bounds.height*0.1)
+              
                 
-                Group {
-                    if currentDialogIndex >= 2  {
-                        Image("telaDNABoth")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxHeight: 0.4 * UIScreen.main.bounds.height)
-                            .padding(.leading)
-                            .padding(.trailing)
-                            .offset(y: UIScreen.main.bounds.height*0.1)
-                    } else {
-                        Image("telaDNAPink")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxHeight: 0.4 * UIScreen.main.bounds.height)
-                            .padding(.leading)
-                            .padding(.trailing)
-                            .offset(y: UIScreen.main.bounds.height*0.1)
-                            
-                    }
-                }
                 
                 VStack {
                     Spacer()
@@ -75,8 +61,7 @@ struct SequencingExplanation: View {
                         Group {
                             if currentDialogIndex == 2 {
                                 cat2
-                            } else if currentDialogIndex >= 3 {
-                                cat3
+                           
                             } else {
                                 cat1
                             }
@@ -88,7 +73,7 @@ struct SequencingExplanation: View {
             
             
 
-            NavigationLink(destination:  ScreenDNA(), isActive: $showPresentation2) {
+            NavigationLink(destination:  Conclusion(), isActive: $showPresentation2) {
                 // Trocar para a Presentation View 2
                
             }.navigationBarBackButtonHidden(true)
@@ -103,14 +88,12 @@ struct SequencingExplanation: View {
             }
         }
     }
-}
+    }
 
-struct SequencingExplanation_Previews: PreviewProvider {
+
+struct SNPexplanation_Previews: PreviewProvider {
     static var previews: some View {
-        SequencingExplanation()
-            .previewInterfaceOrientation(.landscapeLeft)
+        SNPexplanation()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
-//telaDNAPink
-//telaDNABoth
-
