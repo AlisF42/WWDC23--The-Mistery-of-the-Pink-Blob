@@ -19,7 +19,7 @@ struct MachineExplanation1: View {
         ZStack {
             Image("BGIntro")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width)
             
             VStack{
@@ -43,8 +43,9 @@ struct MachineExplanation1: View {
                 }
             }
             
-        }.edgesIgnoringSafeArea(.all)
-            .onTapGesture { 
+        }.navigationBarBackButtonHidden(true)
+        .edgesIgnoringSafeArea(.all)
+            .onTapGesture {
                 
                 if currentDialogIndex < dialogList.count - 1 {
                     currentDialogIndex += 1

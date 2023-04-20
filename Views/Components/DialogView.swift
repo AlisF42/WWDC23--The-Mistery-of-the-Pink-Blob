@@ -56,8 +56,8 @@ struct DialogView: View {
                         HStack {
                             Spacer()
                             HStack {
-                                Text("NEXT")
-                                Image(systemName: "chevron.right")
+                                Text("")
+                                Image(systemName: "")
                             }
                             .foregroundColor(Color.yellow)
                             .font(.system(size: 18, weight: .bold, design: .rounded))

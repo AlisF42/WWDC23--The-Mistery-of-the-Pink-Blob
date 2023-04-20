@@ -21,7 +21,7 @@ struct TheEnd: View {
                 Image(bg)
                     .resizable()
                     .frame(minWidth: 0, maxWidth: .infinity)
-                    .aspectRatio(contentMode: .fit) //é fit ou fill?? Fill deixa um espacinho em baixo
+                    .aspectRatio(contentMode: .fill) //é fit ou fill?? Fill deixa um espacinho em baixo
                 
                 VStack{
                     //titulo
@@ -56,6 +56,7 @@ struct TheEnd: View {
                 }
                 
             }
+            .navigationBarBackButtonHidden(true)
             .edgesIgnoringSafeArea(.all)
             .ignoresSafeArea(.all)
         }

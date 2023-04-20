@@ -73,7 +73,7 @@ struct SNPexplanation: View {
             
             
 
-            NavigationLink(destination:  Conclusion(), isActive: $showPresentation2) {
+            NavigationLink(destination:  Conclusion2(), isActive: $showPresentation2) {
                 // Trocar para a Presentation View 2
                
             }.navigationBarBackButtonHidden(true)

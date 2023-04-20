@@ -11,7 +11,7 @@ import SwiftUI
 import SpriteKit
 
 class MiniGame2Scene: SKScene {
-
+    var background: SKSpriteNode!
     var movableNode : SKNode?
     
     var popUpNode: SKNode = SKNode()
@@ -37,7 +37,7 @@ class MiniGame2Scene: SKScene {
     var numberOfRows = 5
        
     override func didMove(to view: SKView) {
-
+        createBackground()
         createBaseAnchor()
         createDropAreas()
         createDropAreas()
@@ -274,37 +274,47 @@ class MiniGame2Scene: SKScene {
     }
     
     func createPopUp() {
-        self.addChild(popUpNode)
-        popUpNode.alpha = 0
-        
-        let bgBlur = SKSpriteNode(color: .black, size: self.size)
-        popUpNode.addChild(bgBlur)
-        bgBlur.position = CGPoint(x: 683, y: 512)
-        bgBlur.alpha = 0.5
-        
-        let popUpBox = SKSpriteNode(imageNamed: "boxExplanation")
-        popUpBox.name = "popUpBox"
-        popUpBox.position = CGPoint(x: 683, y: 512)
-        popUpNode.addChild(popUpBox)
-        
-        let text = SKLabelNode(text: "hffgh")
-        text.fontColor = .black
-        text.name = "popUpText"
-        text.fontName = "SFProText-Black"
-        text.fontSize = 30
-        popUpBox.addChild(text)
-        
-        popUpButton = SKShapeNode(rect: CGRect(origin: CGPoint(x: -150, y: -50), size: CGSize(width: 300, height: 100)), cornerRadius: 50)
-        popUpButton.position = CGPoint(x: 683, y: 200)
-        popUpNode.addChild(popUpButton)
-        
-        let buttonText = SKLabelNode(fontNamed: "SF-Pro-Rounded-Bold")
-        buttonText.text = "OK"
-        buttonText.fontColor = .black
-        buttonText.fontName = "SFProText-Black"
-        buttonText.fontSize = 30
-        buttonText.position = CGPoint(x: 0, y: -buttonText.frame.height/2)
-        popUpButton.addChild(buttonText)
+            self.addChild(popUpNode)
+            popUpNode.alpha = 0
+
+            let bgBlur = SKSpriteNode(color: .black, size: self.size)
+            popUpNode.addChild(bgBlur)
+            bgBlur.position = CGPoint(x: 683, y: 512)
+            bgBlur.alpha = 0.5
+            
+            let popUpBox = SKSpriteNode(imageNamed: "boxExplanation")
+            popUpBox.name = "popUpBox"
+            popUpBox.position = CGPoint(x: 683, y: 512)
+            popUpNode.addChild(popUpBox)
+
+            let text = SKLabelNode(text: "hffgh dfjbjdgk kkdnkdnkg kdhmkmkhdmh dhdklhmkdhkl kdhldkjhkd hkdjhkldjh ldjhklhkldjh dhjdkjhkldjlkdh dhkljhkdjhkdjh djhdkjhldkjhlkd dhdkljhkldjhkldjh dhjdkjhlkdjhlkd dhjkdljhlkdj")
+            text.lineBreakMode = .byWordWrapping
+            text.numberOfLines = 0
+            text.preferredMaxLayoutWidth = popUpBox.size.width - 40
+            text.fontColor = .black
+            text.name = "popUpText"
+            text.fontName = "SFProText-Black"
+            text.fontSize = 30
+            popUpBox.addChild(text)
+
+            popUpButton = SKShapeNode(rect: CGRect(origin: CGPoint(x: -150, y: -50), size: CGSize(width: 300, height: 100)), cornerRadius: 30)
+            popUpButton.position = CGPoint(x: 683, y: 220)
+            popUpNode.addChild(popUpButton)
+           
+            let buttonText = SKLabelNode(fontNamed: "SF-Pro-Rounded-Bold")
+            buttonText.text = "OK"
+            buttonText.fontColor = .black
+          //  buttonText.fontName = "SFPro-Black"
+            buttonText.fontSize = 30
+            buttonText.position = CGPoint(x: 0, y: -buttonText.frame.height/2)
+            popUpButton.addChild(buttonText)
+        }
+    
+    func createBackground() {
+        background = SKSpriteNode(imageNamed: "BGIntroLab")
+        background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        background.size = self.size
+        self.addChild(background)
     }
 }
 

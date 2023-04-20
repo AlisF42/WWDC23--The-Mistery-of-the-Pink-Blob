@@ -37,7 +37,7 @@ class FinalGameScene: SKScene {
     }
     
     func createCat() {
-        cat = SKSpriteNode()
+        cat = SKSpriteNode(imageNamed: "cat5Final")
         cat.anchorPoint = CGPoint(x: 0, y: 0)//inferior exqurdo
         cat.position = CGPoint(x: 700, y: 0)//posicao em relacao ao anchor point
         cat.size = CGSize(width: 628, height: 675)//do figma
